@@ -3,9 +3,10 @@
 # числа N и количество этих множителей.
 # 60 -> 2, 2, 3, 5
 
-
 n = abs(int(input("Введите число: ")))
-
+b = n
+def Is_Int(a):
+    return int(a) == a
 def prime_number_count(n):
     list0 = []
     for i in range(1, n + 1):
@@ -17,28 +18,19 @@ def prime_number_count(n):
             list0.append(i)
     return list0
 
-# def counting_prime_number_in_list(n, list0 : list):
-#     lis = []
-#     ind = 0
-#     while n >= 0: 
-#         if n % list[ind] == 0:
-#             lis.append(list[ind])
-#             n /= 2
-#         else:
-#             ind += 1
-#     return lis
-
 list0 = prime_number_count(n)
-
-
 result_division = []
 ind = 0
-while n >= 0: 
-    if n % int(list0[ind]) == 0:
-        result_division.append(list0[ind])
-        n /= 2
-    # else:
-    #     ind += 1
 
-print(result_division)
+while n != 1:
+    if Is_Int(n / list0[ind]):
+        result_division.append(list0[ind])
+        n =n / list0[ind]
+    else:
+        ind += 1
+
+print(f"{b} -> {result_division} = {len(result_division)}")
+
+
+
 
